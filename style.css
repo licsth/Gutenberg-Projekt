@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif|Roboto');
+
+p{
+  font-family: "Noto Serif";
+  font-size: 12px;
+}
+
+h1{
+  font-family: "Roboto";
+  font-size: 20px;
+}
+
+body{
+  margin: 25px 25px 25px 25px;
+}
