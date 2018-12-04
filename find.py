@@ -49,7 +49,9 @@ if j == 1:
     print("Suchterm nicht gefunden")
     sys.exit()
 
-c = int(raw_input("Which title do you choose? (please give the number, 0 for exit) "))-1
+c = int(raw_input("Which title do you choose? (please enter the number, 0 for exit) "))-1
 if c == -1:
     sys.exit()
-os.system("python gutenberg.py " + list[c] + " '" + list2[c] + "'")
+
+print(list[c])
+#os.system("python gutenberg.py " + list[c] + " '" + list2[c] + "' " + format)

@@ -1,14 +1,24 @@
 import urllib
 import sys
 
-if(len(sys.argv) > 2):
-    name = sys.argv[2]
-else:
-    name = "buch"
-f = open(name+".html", "w")
+name = sys.argv[2]
+format = sys.argv[3]
+
 f2 = open("style.css", "r")
 t2 = f2.read()
-f.write("<html><head></head><style>" + t2 + "</style><body>")
+titleS = "##"
+titleE = "<br>"
+paragraphS = ""
+paragraphE = "\n"
+if format == "html":
+    f = open(name+".html", "w")
+    f.write("<html><head></head><style>" + t2 + "</style><body>")
+    titleS = "<h1>"
+    titleE = "</h1>"
+    paragraphS = "<p>"
+    paragraphE = "</p>"
+else:
+    f = open(name+".md", "w")
 j = 1
 base = "http://gutenberg.spiegel.de" + sys.argv[1]
 print("Titel wird heruntergeladen...")
@@ -28,7 +38,7 @@ while True:
 while j < l+1:
 
     i = str(j)
-    f.write("<h1>Kapitel " + i + "</h1>")
+    f.write(titleS + "Kapitel " + i + titleE)
 
     link = base + i
     s = urllib.urlopen(link)
@@ -44,10 +54,11 @@ while j < l+1:
         b = t.find("</p>", b+1, len(t)-1)
         if b < 0:
             break
-        f.write("<p>" + (t[b2:b]) + "</p>")
+        f.write(paragraphS + (t[b2:b]) + paragraphE)
         f.flush()
 
     j+=1
 
-f.write("</body></html>")
+if format == "html":
+    f.write("</body></html>")
 f.close()

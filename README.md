@@ -17,7 +17,7 @@ Ein kleines Programm um Bücher aus dem Gutenberg-Projekt herunterzuladen
 > python find.py [Schlagwort]
 1. Buchtitel (Autor)
 2. ...
-Which title do you choose? (please give the number, 0 for exit) [Nummer des gewünschten Buchs]
+Which title do you choose? (please enter the number, 0 for exit) [Nummer des gewünschten Buchs]
 Titel wird heruntergeladen
 ```
 
