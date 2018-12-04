@@ -1,5 +1,6 @@
 import sys
 import codecs
+import os
 
 f = codecs.open("index.csv", "r", "ISO-8859-1")
 l = f.read()
@@ -11,14 +12,23 @@ if(len(sys.argv) < 2):
 search = sys.argv[1].lower()
 a = l.split(";")
 
+list = []
+list2 = []
+
 i = 1
+j = 1
 while i < len(a):
     #print(a[i].lower())
     if search in a[i].lower():
-        print(a[i] + " (" + a[i-1][1:] + ")")
+        print(str(j) + ": " + a[i] + " (" + a[i-1][1:] + ")")
+        list.append(a[i+1])
+        list2.append(a[i] + " (" + a[i-1][1:] + ")")
+        j+=1
     i += 3
-# if not search in a:
-#     print("Suchterm nicht gefunden")
-#     sys.exit()
 
-#index = a.index(search)
+if j == 1:
+    print("Suchterm nicht gefunden")
+    sys.exit()
+
+c = int(raw_input("Which title do you choose? (please give the number) "))-1
+os.system("python gutenberg.py " + list[c] + " '" + list2[c] + "'")
