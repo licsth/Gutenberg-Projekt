@@ -29,4 +29,5 @@ while i < len(h3s):
         f.write(author + ";")
         f.write(li[titles:] + ";")
         f.write(li[hrefs:hrefe] + ";\n")
+        f.flush()
     i+=1
