@@ -9,6 +9,15 @@ if(len(sys.argv) < 2):
     print("Bitte gib einen Suchterm ein")
     sys.exit()
 
+allowed = ["html", "md"]
+
+format = "html"
+if(len(sys.argv) > 2):
+    format = sys.argv[2]
+
+if not format in allowed:
+    print("")
+
 search = sys.argv[1].lower()
 a = l.split(";")
 

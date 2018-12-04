@@ -11,6 +11,7 @@ t2 = f2.read()
 f.write("<html><head></head><style>" + t2 + "</style><body>")
 j = 1
 base = "http://gutenberg.spiegel.de" + sys.argv[1]
+print("Titel wird heruntergeladen...")
 s = urllib.urlopen(base + "1")
 t = s.read()
 
