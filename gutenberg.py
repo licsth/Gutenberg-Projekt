@@ -8,7 +8,7 @@ else:
 f = open(name+".html", "w")
 f.write("<html><head><link href='style.css' rel='stylesheet'></head><body>")
 j = 1
-base = sys.argv[1]
+base = "http://gutenberg.spiegel.de" + sys.argv[1]
 s = urllib.urlopen(base + "1")
 t = s.read()
 
