@@ -6,7 +6,9 @@ if(len(sys.argv) > 2):
 else:
     name = "buch"
 f = open(name+".html", "w")
-f.write("<html><head><link href='style.css' rel='stylesheet'></head><body>")
+f2 = open("style.css", "r")
+t2 = f2.read()
+f.write("<html><head></head><style>@import url('https://fonts.googleapis.com/css?family=Noto+Serif|Roboto');p{font-family: 'Noto Serif';font-size: 12px;} h1{font-family: 'Roboto';font-size: 20px;}body{margin: 25px 25px 25px 25px;}</style><body>")
 j = 1
 base = "http://gutenberg.spiegel.de" + sys.argv[1]
 s = urllib.urlopen(base + "1")
