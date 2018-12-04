@@ -53,5 +53,5 @@ c = int(raw_input("Which title do you choose? (please enter the number, 0 for ex
 if c == -1:
     sys.exit()
 
-print(list[c])
-#os.system("python gutenberg.py " + list[c] + " '" + list2[c] + "' " + format)
+#print(list[c])
+os.system("python gutenberg.py " + list[c] + " '" + list2[c] + "' " + format)
