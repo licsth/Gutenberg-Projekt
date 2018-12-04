@@ -12,9 +12,7 @@ end = t.find("</div>", start)
 h3s = t[start:end].split("<h3>")
 i=1
 while i < len(h3s):
-    if "Jaroslav" in h3s[i]:
-        i+=1
-        continue
+    h3s[i] = h3s[i].replace(";", ",")
     author = h3s[i][:h3s[i].find("</h3>")]
     liste = h3s[i].split("</a>")
     for li in liste:
