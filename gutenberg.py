@@ -7,9 +7,11 @@ format = sys.argv[3]
 f2 = open("style.css", "r")
 t2 = f2.read()
 titleS = "##"
-titleE = "<br>"
+titleE = "\n" \
++"\n"
 paragraphS = ""
-paragraphE = "\n"
+paragraphE = "\n" \
++"\n"
 if format == "html":
     f = open(name+".html", "w")
     f.write("<html><head></head><style>" + t2 + "</style><body>")

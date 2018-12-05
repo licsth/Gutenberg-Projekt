@@ -54,4 +54,4 @@ if c == -1:
     sys.exit()
 
 #print(list[c])
-os.system("python gutenberg.py " + list[c] + " '" + list2[c] + "' " + format)
+os.system("python gutenberg.py " + list[c].encode("utf8") + " '" + list2[c].encode("utf8") + "' " + format)
