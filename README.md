@@ -21,4 +21,4 @@ Which title do you choose? (please enter the number, 0 for exit) [Nummer des gew
 Titel wird heruntergeladen
 ```
 
-Das Buch wird in dem Ordner als html-Datei gespeichert gespeichert.
+Das Buch wird in dem Ordner als html-Datei gespeichert.
