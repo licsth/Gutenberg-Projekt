@@ -15,7 +15,7 @@ paragraphE = "\n" \
 if format == "html":
     f = open(name+".html", "w")
     f.write("<html><head></head><style>" + t2 + "</style><body>")
-    titleS = "<h1>"
+    titleS = "<h1 id='kapitel"
     titleE = "</h1>"
     paragraphS = "<p>"
     paragraphE = "</p>"
@@ -40,7 +40,12 @@ while True:
 while j < l+1:
 
     i = str(j)
-    f.write(titleS + "Kapitel " + i + titleE)
+    if titleS == "<h1 id='kapitel":
+        titleS += i+"'>"
+        f.write(titleS + "Kapitel " + i + titleE)
+        titleS = "<h1 id='kapitel"
+    else:
+        f.write(titleS + "Kapitel " + i + titleE)
 
     link = base + i
     s = urllib.urlopen(link)
