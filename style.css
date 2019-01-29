@@ -5,11 +5,16 @@ p{
   font-size: 12px;
 }
 
-h1{
+h2{
   font-family: "Roboto";
   font-size: 20px;
 }
 
+h1{
+  font-family: "Roboto";
+  font-size: 26px;
+}
+
 body{
-  margin: 25px 25px 25px 25px;
+  margin: 25px 9% 25px 9%;
 }
