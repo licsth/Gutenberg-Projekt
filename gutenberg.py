@@ -22,7 +22,7 @@ if format == "html":
 else:
     f = open(name+".md", "w")
 j = 1
-base = "http://gutenberg.spiegel.de" + sys.argv[1]
+base = "https://www.projekt-gutenberg.org/" + sys.argv[1]
 print("Titel wird heruntergeladen...")
 s = urllib.urlopen(base + "1")
 t = s.read()
