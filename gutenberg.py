@@ -6,7 +6,7 @@ format = sys.argv[3]
 
 f2 = open("style.css", "r")
 t2 = f2.read()
-titleS = "##"
+titleS = "## "
 titleE = "\n" \
 +"\n"
 paragraphS = ""
@@ -21,44 +21,63 @@ if format == "html":
     paragraphE = "</p>"
 else:
     f = open(name+".md", "w")
-j = 1
+j = 0
 base = "https://www.projekt-gutenberg.org/" + sys.argv[1]
 print("Titel wird heruntergeladen...")
-s = urllib.urlopen(base + "1")
+s = urllib.urlopen(base + "/index.html")
 t = s.read()
 
-ul = t.find('ul class="gbnav"')
+ul = t.find('ul')
 ul2 = t.find("</ul>", ul)
+ul = t.find("li", ul)
 l = 0
+
+titles = []
+urls = []
 
 while True:
     ul = t.find("<li>", ul+1, ul2)
+    href1 = t.find("href", ul)+6
+    href2 = t.find(">", href1)-1
+    url = t[href1:href2]
+    if "TYPE" in url:
+        break
+    urls.append(t[href1:href2])
+    title2 = t.find("</a>", href2)
+    titles.append(t[href2+2:title2])
     if ul < 0:
         break
     l += 1
 
-while j < l+1:
+if format == "html":
+    f.write("<ul>")
+    for i in range(l):
+        f.write("<li><a href='#kapitel" + str(i+1) + "'>" + titles[i] + "</a></li>")
+    f.write("</ul>")
+    f.flush()
 
-    i = str(j)
+
+while j < l:
+
     if titleS == "<h2 id='kapitel":
-        titleS += i+"'>"
-        f.write(titleS + "Kapitel " + i + titleE)
+        titleS += str(j+1)+"'>"
+        f.write(titleS + titles[j] + titleE)
         titleS = "<h2 id='kapitel"
     else:
-        f.write(titleS + "Kapitel " + i + titleE)
+        f.write(titleS + titles[j] + titleE)
 
-    link = base + i
+    link = base + "/" + urls[j]
     s = urllib.urlopen(link)
     t = s.read()
 
-    b = t.find('Quellenangabe')
+    b = t.find('Inhalt')
     b2 = b
 
     while True:
-        b2 = t.find("<p>", b, len(t)-1)+3
+        b2 = t.find("<p>", b)+3
         if b2 < 3:
             break
-        b = t.find("</p>", b+1, len(t)-1)
+        b = t.find("</p>", b+1)
         if b < 0:
             break
         f.write(paragraphS + (t[b2:b]) + paragraphE)

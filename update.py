@@ -18,10 +18,11 @@ while i < len(h3s):
         liste = h3s[i].split("</dd>")
         for li in liste:
             hrefs = li.find("href")+6+6
-            hrefe = li.find(">", hrefs)-2
-            titlee = li.find('</a>', hrefe)
-            title = li[hrefe+3:titlee].strip()
-            href = li[hrefs:hrefe].strip()
+            hrefe1 = li.find(">", hrefs)-2
+            hrefe2 = li[:hrefe1].rfind("/")
+            titlee = li.find('</a>', hrefe1)
+            title = li[hrefe1+3:titlee].strip()
+            href = li[hrefs:hrefe2].strip()
             if(title == "" or href == "") :
                 continue
             f.write(author + ";")

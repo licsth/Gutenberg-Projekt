@@ -18,3 +18,28 @@ h1{
 body{
   margin: 25px 9% 25px 9%;
 }
+
+ul {
+    -moz-column-count: 4;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 4;
+    -webkit-column-gap: 20px;
+    column-count: 4;
+    column-gap: 20px;
+}
+
+li{
+  list-style-type: none;
+  font-family: "Roboto";
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+a{
+  text-decoration: none;
+  color: #afb0bc;
+}
+
+a:hover{
+  color: #666;
+}
