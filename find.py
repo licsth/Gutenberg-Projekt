@@ -1,8 +1,9 @@
+#-*- coding: UTF-8 -*-
 import sys
 import codecs
 import os
 
-f = codecs.open("index.csv", "r", "ISO-8859-1")
+f = codecs.open("index.csv", "r", "UTF-8")
 l = f.read()
 
 if(len(sys.argv) < 2):
