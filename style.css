@@ -2,7 +2,7 @@
 
 p{
   font-family: "Noto Serif";
-  font-size: 12px;
+  font-size: 13px;
 }
 
 h2{
@@ -16,7 +16,8 @@ h1{
 }
 
 body{
-  margin: 25px 9% 25px 9%;
+  margin: 25px auto;
+  max-width: min(90%, 1000px);
 }
 
 ul {
