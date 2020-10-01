@@ -33,3 +33,12 @@ Das Buch wird in dem Ordner als html-Datei gespeichert.
 Welcher Titel soll heruntergeladen werden? (bitte Nummer angeben, 0 zum Abbruch) [Nummer des gewünschten Buchs]
 Titel wird heruntergeladen...
 ```
+
+#### Index aktualisieren
+Falls ein Titel nicht gefunden wird aber sicher im Gutenberg-Projekt vorhanden ist sollte der Index aktualisiert werden, mittels
+```shell
+> python update.py
+```
+
+#### HTML-Style ändern
+Der Style des Buchs im HTML-Format wird direkt aus style.css kopiert, kann also mittels Änderungen an dieser Datei für zukünftige Downloads angeändert werden.
