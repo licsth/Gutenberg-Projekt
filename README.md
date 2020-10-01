@@ -11,13 +11,29 @@ Ein kleines Programm um Bücher aus dem Gutenberg-Projekt herunterzuladen
 > cd /path/to/repository/
 ```
 
+##### Für PDF
+pdfkit:
+```
+> pip install pdfkit
+```
+
+wkhtmltopdf:
+```
+# MacOS
+> brew install Caskroom/cask/wkhtmltopdf
+# Debian/Ubuntu
+> apt-get install wkhtmltopdf
+# Windows:
+> choco install wkhtmltopdf
+```
+
 #### Bücher herunterladen
 
 ```shell
 > python find.py [Schlagwort]
 1. Buchtitel (Autor)
 2. ...
-Which title do you choose? (please enter the number, 0 for exit) [Nummer des gewünschten Buchs]
+Welcher Titel soll heruntergeladen werden? (bitte Nummer angeben, 0 zum Abbruch) [Nummer des gewünschten Buchs]
 Titel wird heruntergeladen...
 ```
 
