@@ -7,17 +7,17 @@ f = codecs.open("index.csv", "r", "UTF-8")
 l = f.read()
 
 if(len(sys.argv) < 2):
-    print("Usage: python find.py <title> [format]\n\twhere format is either html or md")
+    print("Usage: python find.py <title> [format]\n\twhere format is either html, pdf or md")
     sys.exit()
 
-allowed = ["html", "md"]
+allowed = ["html", "md", "pdf"]
 
 format = "html"
 if(len(sys.argv) > 2):
     format = sys.argv[2]
 
 if not format in allowed:
-    print("Usage: python find.py <title> [format]\n\twhere format is either html or md")
+    print("Usage: python find.py <title> [format]\n\twhere format is either html, pdf or md")
     sys.exit()
 
 search = sys.argv[1].lower()

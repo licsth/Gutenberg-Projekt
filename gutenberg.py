@@ -1,5 +1,6 @@
 import urllib
 import sys
+import os
 
 name = sys.argv[2]
 format = sys.argv[3]
@@ -12,15 +13,16 @@ titleE = "\n" \
 paragraphS = ""
 paragraphE = "\n" \
 +"\n"
-if format == "html":
+if format == "html" or format=="pdf":
     f = open(name+".html", "w")
-    f.write("<html><head><title>"+name+"</title></head><style>" + t2 + "</style><body><h1>"+name+"</h1>")
+    f.write("<html><head><title>"+name+"</title></head><meta charset='UTF-8'/><style>" + t2 + "</style><body><h1>"+name+"</h1>")
     titleS = "<h2 id='kapitel"
     titleE = "</h2>"
     paragraphS = "<p>"
     paragraphE = "</p>"
 else:
     f = open(name+".md", "w")
+    f.write("# " + name + "\n")
 j = 0
 base = "https://www.projekt-gutenberg.org/" + sys.argv[1]
 print("Titel wird heruntergeladen...")
@@ -49,7 +51,7 @@ while True:
         break
     l += 1
 
-if format == "html":
+if format == "html" or format == "pdf":
     f.write("<ul>")
     for i in range(l):
         f.write("<li><a href='#kapitel" + str(i+1) + "'>" + titles[i] + "</a></li>")
@@ -88,3 +90,6 @@ while j < l:
 if format == "html":
     f.write("</body></html>")
 f.close()
+
+if format == "pdf":
+    os.system("python convert.py '" + name + "'")
