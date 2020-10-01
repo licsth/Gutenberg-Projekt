@@ -7,7 +7,7 @@ f = codecs.open("index.csv", "r", "UTF-8")
 l = f.read()
 
 if(len(sys.argv) < 2):
-    print("Bitte gib einen Suchterm ein")
+    print("Usage: python find.py <title> [format]\n\twhere format is either html or md")
     sys.exit()
 
 allowed = ["html", "md"]
@@ -17,7 +17,8 @@ if(len(sys.argv) > 2):
     format = sys.argv[2]
 
 if not format in allowed:
-    print("")
+    print("Usage: python find.py <title> [format]\n\twhere format is either html or md")
+    sys.exit()
 
 search = sys.argv[1].lower()
 a = l.split(";")
@@ -50,7 +51,7 @@ if j == 1:
     print("Suchterm nicht gefunden")
     sys.exit()
 
-c = int(raw_input("Which title do you choose? (please enter the number, 0 for exit) "))-1
+c = int(raw_input("Welcher Titel soll heruntergeladen werden? (bitte Nummer angeben, 0 zum Abbruch) "))-1
 if c == -1:
     sys.exit()
 

@@ -30,6 +30,6 @@ Das Buch wird in dem Ordner als html-Datei gespeichert.
 > python find.py [Schlagwort] md
 1. Buchtitel (Autor)
 2. ...
-Which title do you choose? (please enter the number, 0 for exit) [Nummer des gewünschten Buchs]
+Welcher Titel soll heruntergeladen werden? (bitte Nummer angeben, 0 zum Abbruch) [Nummer des gewünschten Buchs]
 Titel wird heruntergeladen...
 ```
